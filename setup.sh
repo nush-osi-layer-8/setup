@@ -55,6 +55,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
 else
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     cp $DIR/config/.* ~/
+    sh $DIT/config/config.sh
 fi
 
 
