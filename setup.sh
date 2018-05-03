@@ -3,52 +3,56 @@ sudo apt-get update
 sudo apt-get -y upgrade
 
 # v. impt tools setup
-echo "Installing build tools ..."
-sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+echo "\nInstalling build tools ...\n"
+sudo apt-get --assume-yes install build-essential libssl-dev libffi-dev python-dev
 
-echo "Installing Python 2 ..."
-sudo apt-get install -y python2.7 python-pip
+echo "\nInstalling Python 2 ...\n"
+sudo apt-get --assume-yes install -y python2.7 python-pip
 
-echo "Installing Python 3 ..."
-sudo apt-get install -y python3.6 python3-pip
+echo "\nInstalling Python 3 ...\n"
+sudo apt-get --assume-yes install -y python3.6 python3-pip
 
-echo "Installing 32-bit support ..."
+echo "\nInstalling 32-bit support ...\n"
 sudo dpkg --add-architecture i386
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
-sudo apt-get install multiarch-support
+sudo apt-get --assume-yes install libc6:i386 libncurses5:i386 libstdc++6:i386
+sudo apt-get --assume-yes install multiarch-support
 
-echo "Installing zsh ... "
+echo "\nInstalling curl ... \n"
+sudo apt-get --assume-yes install curl
+
+echo "\nInstalling zsh ... \n"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Installing radare2 ..."
+echo "\nInstalling radare2 ...\n"
 git clone https://github.com/radare/radare2.git
 ./radare2/sys/install.sh
 
-echo "Installing Ruby ... "
-sudo apt-get install ruby-full
+echo "\nInstalling Ruby ... \n"
+sudo apt-get --assume-yes install ruby-full
 
-echo "Installing one-gadget ... "
-gem install one_gadget
+echo "\nInstalling one-gadget ... \n"
+sudo gem install one_gadget
 
-echo "Installing pwntools ..."
+echo "\nInstalling pwntools ...\n"
 pip install pwntools
 pip3 install pwntools
 
-echo "Installing libc6-dbg and gdb ... "
-sudo apt-get install libc6-dbg gdb valgrind
+echo "\nInstalling libc6-dbg and gdb ... \n"
+sudo apt-get --assume-yes install libc6-dbg gdb valgrind
 
-echo "Installing libc-database ... "
+echo "\nInstalling libc-database ... \n"
 git clone https://github.com/niklasb/libc-database.git
 
-echo "Installing Terminator ... "
-sudo apt-get install terminator
+echo "\nInstalling Terminator ...\n"
+sudo apt-get --assume-yes install terminator
 
-echo "Copying datfiles into ~/. If you have existing dotfiles with the same name"
+echo "\nCopying datfiles into ~/. If you have existing dotfiles with the same name"
 echo -n "they will be overwritten. Continue? (y/n)? "
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
     cp ./dotfiles/.* ~/
 else
+    echo "\nUnderstood"
 fi
 
 
