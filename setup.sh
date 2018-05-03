@@ -21,6 +21,7 @@ echo "\nInstalling curl ... \n"
 sudo apt-get --assume-yes install curl
 
 echo "\nInstalling zsh ... \n"
+sudo apt-get --assume-yes install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "\nInstalling radare2 ...\n"
@@ -50,9 +51,10 @@ echo "\nCopying datfiles into ~/. If you have existing dotfiles with the same na
 echo -n "they will be overwritten. Continue? (y/n)? "
 read answer
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-    cp ./dotfiles/.* ~/
-else
     echo "\nUnderstood"
+else
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    cp $DIR/config/.* ~/
 fi
 
 
