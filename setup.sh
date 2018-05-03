@@ -20,10 +20,6 @@ sudo apt-get --assume-yes install multiarch-support
 echo "\nInstalling curl ... \n"
 sudo apt-get --assume-yes install curl
 
-echo "\nInstalling zsh ... \n"
-sudo apt-get --assume-yes install zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 echo "\nInstalling radare2 ...\n"
 git clone https://github.com/radare/radare2.git
 ./radare2/sys/install.sh
