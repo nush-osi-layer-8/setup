@@ -1,5 +1,6 @@
-# setup
-Recommended setup file for new members
+# Setup for Beginners
+
+If you think your system is unable to handle a VM, please dual boot instead, then skip to Step 31 to install our dependencies
 
 1. Get [Ubuntu 18.04 ISO]( https://www.ubuntu.com/download/desktop) 
 2. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
