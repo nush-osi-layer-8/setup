@@ -15,7 +15,10 @@ sudo apt install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php u
 Follow the instructions. When prompted for a MySQL root password, enter `p@ssw0rd`. It may not echo the password back to you. 
 
 ```
-sudo systemctl start apache2
+sudo systemctl disable apache2
+sudo systemctl disable mysql-server
+sudo systemctl restart apache2
+sudo systemctl restart mysql-server
 ```
 
 Once that command completes, check that you can visit [localhost](http://localhost/) from inside the VM. You should be greeted by the default Apache page.
@@ -51,7 +54,6 @@ Now let's restart Apache and start the MySQL server.
 
 ```
 sudo systemctl restart apache2
-sudo systemctl restart mysql-server
 ```
 
 You can now refresh the page, check that most of the features are green, and press the "Create / Reset Database" button. 
@@ -62,4 +64,9 @@ You'll need to set the security level to something that's not impossible. Let's 
 
 Try out some vulnerabilities listed in the sidebar. There's linked resources to give you background for each vulnerability, and a "View Help" to know more on what you are supposed to do. Don't cheat! Try your best first. 
 
+To keep your VM safe, disable Apache when you're done. 
 
+```
+sudo systemctl stop apache2
+sudo systemctl stop mysql-server
+```
