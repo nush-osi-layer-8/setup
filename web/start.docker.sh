@@ -7,6 +7,8 @@
 
 set -e
 
+trap exit\ 0 INT
+
 echo
 echo "This is a setup script that tries to do as much automatically, within a Docker container"
 echo
@@ -15,14 +17,14 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password password p@s
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password p@ssw0rd'
 
 apt-get update
-apt-get install -y apache2 mysql-server php php-mysqli php-gd libapache2-mod-php unzip
+apt-get install -y apache2 mysql-server php php-mysqli php-gd libapache2-mod-php wget unzip
 
 cd /var/www
 wget https://github.com/ethicalhack3r/DVWA/archive/master.zip
 unzip master.zip
 mv DVWA-master html/dvwa
 cd html/dvwa
-sudo cp config/config.inc.php.dist config/config.inc.php
+cp config/config.inc.php.dist config/config.inc.php
 
 chgrp www-data config hackable/uploads external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
 chmod g+w config hackable/uploads external/phpids/0.6/lib/IDS/tmp/phpids_log.txt

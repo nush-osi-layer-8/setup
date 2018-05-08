@@ -1,5 +1,7 @@
 
-# Get started
+# Web Hacking!
+
+## Modifying HTTP Requests
 
 An essential tool for modifying web requests is Burp suite. You can get it [here](https://portswigger.net/burp/communitydownload). I don't use it much because I prefer to manually craft requests using [httpie](https://httpie.org/) or curl. 
 
