@@ -6,6 +6,7 @@
 * https://github.com/balsn/ctf_writeup/tree/master/20180411-hitbxctfqual#web
 * https://github.com/rwinch/encryption-not-signing
 * https://support.portswigger.net/customer/portal/articles/1964073-using-burp-to-hack-cookies-and-manipulate-sessions
+* Nice explanation of the different types of Cookies https://www.troyhunt.com/c-is-for-cookie-h-is-for-hacker/
 
 ## Modifying HTTP Requests
 
@@ -78,3 +79,24 @@ To keep your VM safe, disable Apache when you're done.
 sudo systemctl stop apache2
 sudo systemctl stop mysql-server
 ```
+
+## WackoPicko
+
+Also another vulnerable application. 
+
+```
+sudo sed -i 's/short_open_tag = Off/short_open_tag = On/' /etc/php/7.0/apache2/php.ini
+sudo systemctl restart apache2
+
+cd /var/www
+sudo wget https://github.com/adamdoupe/WackoPicko/archive/master.zip
+sudo unzip master.zip
+sudo mv WackoPicko-master html/WackoPicko
+cd html/WackoPicko
+
+chmod ugo+rwx -R upload
+mysql -u -p < current.sql
+```
+
+Visit [localhost/WackoPicko](http://localhost/WackoPicko/)
+
