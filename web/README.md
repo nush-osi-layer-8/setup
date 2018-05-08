@@ -4,6 +4,8 @@
 ## Some links you can read
 
 * https://github.com/balsn/ctf_writeup/tree/master/20180411-hitbxctfqual#web
+* https://github.com/rwinch/encryption-not-signing
+* https://support.portswigger.net/customer/portal/articles/1964073-using-burp-to-hack-cookies-and-manipulate-sessions
 
 ## Modifying HTTP Requests
 
