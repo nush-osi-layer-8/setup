@@ -7,6 +7,7 @@
 * https://github.com/rwinch/encryption-not-signing
 * https://support.portswigger.net/customer/portal/articles/1964073-using-burp-to-hack-cookies-and-manipulate-sessions
 * Nice explanation of the different types of Cookies https://www.troyhunt.com/c-is-for-cookie-h-is-for-hacker/
+* File uploads have many exploits, this is one of them: https://phocean.net/2013/09/29/file-upload-vulnerabilities-appending-php-code-to-an-image.html
 
 ## Modifying HTTP Requests
 
@@ -82,7 +83,7 @@ sudo systemctl stop mysql-server
 
 ## WackoPicko
 
-Also another vulnerable application. 
+Also another vulnerable application. Read the documentation [here](https://github.com/adamdoupe/WackoPicko)
 
 ```
 sudo sed -i 's/short_open_tag = Off/short_open_tag = On/' /etc/php/7.0/apache2/php.ini
