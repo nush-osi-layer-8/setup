@@ -7,7 +7,7 @@ echo
 commands=(
 	"apt-get update"
 	"echo wireshark-common wireshark-common/install-setuid boolean true | debconf-set-selections -v"
-	"apt-get install -y curl vim dhex binutils testdisk libimage-exiftool-perl wireshark"
+	"apt-get install -y curl vim dhex binutils testdisk libimage-exiftool-perl wireshark binwalk"
 )
 
 for c in "${commands[@]}"; do
